@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>FlaskBlog</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" media="all">
-  </head>
-  <body>
-    <h1>Welcome from FlaskBlog</h1>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Welcome from FlaskBlog{% endblock %}</h1>
+{% endblock %}
