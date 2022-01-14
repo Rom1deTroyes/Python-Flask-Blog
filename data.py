@@ -36,7 +36,7 @@ def lire_posts():
   return posts
 
 
-def get_posts():
+def get_post(id):
   global cursor
 
   connexion()
@@ -52,3 +52,14 @@ def get_posts():
 
   deconnexion()
   return post
+
+def set_post(title, content):
+  global cursor
+  global bdd
+  connexion()
+
+  query = 'INSERT INTO posts(title, content) VALUES ("'+title+'","'+content+'");'
+  cursor.execute(query)
+  bdd.commit()
+
+  deconnexion()
