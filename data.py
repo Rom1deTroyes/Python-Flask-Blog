@@ -34,3 +34,21 @@ def lire_posts():
 
   deconnexion()
   return posts
+
+
+def get_posts():
+  global cursor
+
+  connexion()
+  query = "SELECT * FROM posts WHERE id=" + str(id)
+  cursor.execute(query)
+  post = {}
+  
+  for enregistrement in cursor :
+    post['id'] = enregistrement[0]
+    post['created'] = enregistrement[1]
+    post['title'] = enregistrement[2]
+    post['content'] = enregistrement[3]
+
+  deconnexion()
+  return post
