@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %}Welcome from FlaskBlog{% endblock %}</h1>
+  <h1>{% block title %}Welcome from FlaskBlog{% endblock %}</h1>
+  {% for post in posts %}
+    <a href="{{ url_for('post', post_id=post['id']) }}"><p>{{ post['title'] }}</p></a>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+  {% endfor %}
 {% endblock %}
